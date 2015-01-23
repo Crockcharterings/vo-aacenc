@@ -1,11 +1,11 @@
-Name:           vo-aacenc
+Name:           libvo-aacenc
 Version:        0.1.3
 Release:        1
 Summary:        VisualOn AAC encoder library
 Group:          System Environment/Libraries
-License:        ASL 2.0
+License:        Apache License, Version 2.0
 URL:            http://sourceforge.net/projects/opencore-amr/
-Source0:        http://netcologne.dl.sourceforge.net/project/opencore-amr/vo-aacenc/%{name}-%{version}.tar.gz
+Source0:        %{name}-%{version}.tar.gz
 
 %package devel
 Summary:        Development files for %{name}
@@ -32,9 +32,6 @@ make %{?_smp_mflags}
 %install
 %make_install
 find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
